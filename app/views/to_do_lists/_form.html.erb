@@ -1,0 +1,26 @@
+<% form_for(@todo_list) do |f| %>
+  <%= f.label      :name %>
+  <%= f.text_field :name %>
+
+  <h3>To Do Items:</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>To Do Item</th>
+        <th>Due Date</th>
+        <th>Done?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% f.fields_for :items do |item| %>
+        <tr>
+          <td><%= item.text_field :content %></td>
+          <td><%= item.text_field :due_date %></td>
+          <td><%= item.check_box  :done %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <%= f.submit 'Save' %>
+<% end %>

@@ -1,0 +1,21 @@
+Name: <%= @todo_list.name %>
+
+<h3>To Do Items:</h3>
+<table>
+  <thead>
+    <tr>
+      <th>To Do Item</th>
+      <th>Due Date</th>
+      <th>Done?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @todo_list.items.each do |item| %>
+      <tr>
+        <td><%= item.content %></td>
+        <td><%= item.due_date %></td>
+        <td><%= item.done? ? "Yes" : "No" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

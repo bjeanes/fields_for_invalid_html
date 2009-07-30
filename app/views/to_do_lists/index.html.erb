@@ -1,0 +1,13 @@
+<table>
+  <tr><th>Name</th><th>Actions</th></tr>
+  <% @lists.each do |list| %>
+    <tr>
+      <td><%= list.name %></td>
+      <td><%= link_to "View", list %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+  <%= link_to "New", new_to_do_list_path %>
+</p>

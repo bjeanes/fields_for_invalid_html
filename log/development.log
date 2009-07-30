@@ -1,0 +1,565 @@
+
+
+Processing ToDoListsController#index (for 127.0.0.1 at 2009-07-30 13:10:35) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: ):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ToDoListsController#index (for 127.0.0.1 at 2009-07-30 13:10:58) [GET]
+
+ActionView::MissingTemplate (Missing template to_do_lists/index.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ToDoListsController#index (for 127.0.0.1 at 2009-07-30 13:11:38) [GET]
+  [4;36;1mToDoList Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: to_do_lists: SELECT * FROM "to_do_lists" [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: to_do_lists: SELECT * FROM "to_do_lists" ):
+  app/controllers/to_do_lists_controller.rb:3:in `index'
+
+Rendered rescues/_trace (43.4ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.1ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateToDoLists (20090730030739)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "to_do_lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090730030739')[0m
+Migrating to CreateToDoItems (20090730030826)
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "to_do_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "list_id" integer NOT NULL, "content" text, "due_date" date, "done" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090730030826')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("to_do_items")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("to_do_lists")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("to_do_items")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("to_do_lists")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mCREATE TABLE "to_do_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "list_id" integer NOT NULL, "content" text, "due_date" date, "done" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCREATE TABLE "to_do_lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.2ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090730030826')[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090730030739')[0m
+
+
+Processing ToDoListsController#index (for 127.0.0.1 at 2009-07-30 13:11:56) [GET]
+  [4;35;1mToDoList Load (0.4ms)[0m   [0mSELECT * FROM "to_do_lists" [0m
+Rendering to_do_lists/index
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing ToDoListsController#index (for 127.0.0.1 at 2009-07-30 13:13:37) [GET]
+  [4;36;1mToDoList Load (0.3ms)[0m   [0;1mSELECT * FROM "to_do_lists" [0m
+Rendering to_do_lists/index
+Completed in 7ms (View: 3, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing ToDoListsController#index (for 127.0.0.1 at 2009-07-30 13:14:24) [GET]
+  [4;35;1mToDoList Load (0.3ms)[0m   [0mSELECT * FROM "to_do_lists" [0m
+Rendering template within layouts/application
+Rendering to_do_lists/index
+Completed in 9ms (View: 5, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing ToDoListsController#index (for 127.0.0.1 at 2009-07-30 13:15:52) [GET]
+  [4;36;1mToDoList Load (0.5ms)[0m   [0;1mSELECT * FROM "to_do_lists" [0m
+Rendering template within layouts/application
+Rendering to_do_lists/index
+Completed in 5ms (View: 1, DB: 1) | 200 OK [http://0.0.0.0/]
+
+
+Processing ToDoListsController#index (for 127.0.0.1 at 2009-07-30 13:16:17) [GET]
+  [4;35;1mToDoList Load (0.4ms)[0m   [0mSELECT * FROM "to_do_lists" [0m
+Rendering template within layouts/application
+Rendering to_do_lists/index
+
+ActionView::TemplateError (undefined local variable or method `new_to_do_lists_path' for #<ActionView::Base:0x1036903f8>) on line #12 of app/views/to_do_lists/index.html.erb:
+9: </table>
+10: 
+11: <p>
+12:   <%= link_to "New", new_to_do_lists_path %>
+13: </p>
+
+    app/views/to_do_lists/index.html.erb:12
+
+Rendered rescues/_trace (38.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ToDoListsController#index (for 127.0.0.1 at 2009-07-30 13:16:23) [GET]
+  [4;36;1mToDoList Load (0.3ms)[0m   [0;1mSELECT * FROM "to_do_lists" [0m
+Rendering template within layouts/application
+Rendering to_do_lists/index
+Completed in 8ms (View: 4, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing ToDoListsController#new (for 127.0.0.1 at 2009-07-30 13:16:25) [GET]
+
+ActionController::UnknownAction (No action responded to new. Actions: index):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ToDoListsController#new (for 127.0.0.1 at 2009-07-30 13:16:57) [GET]
+
+NoMethodError (undefined method `items' for #<ToDoList id: nil, name: nil, created_at: nil, updated_at: nil>):
+  app/controllers/to_do_lists_controller.rb:8:in `new'
+  app/controllers/to_do_lists_controller.rb:8:in `times'
+  app/controllers/to_do_lists_controller.rb:8:in `new'
+
+Rendered rescues/_trace (33.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ToDoListsController#new (for 127.0.0.1 at 2009-07-30 13:17:21) [GET]
+
+NameError (uninitialized constant ToDoList::ToDoItems):
+  app/controllers/to_do_lists_controller.rb:8:in `new'
+  app/controllers/to_do_lists_controller.rb:8:in `times'
+  app/controllers/to_do_lists_controller.rb:8:in `new'
+
+Rendered rescues/_trace (36.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ToDoListsController#new (for 127.0.0.1 at 2009-07-30 13:17:26) [GET]
+
+ActionView::MissingTemplate (Missing template to_do_lists/new.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ToDoListsController#new (for 127.0.0.1 at 2009-07-30 13:20:28) [GET]
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.items):
+  app/controllers/to_do_lists_controller.rb:8:in `new'
+  app/controllers/to_do_lists_controller.rb:8:in `times'
+  app/controllers/to_do_lists_controller.rb:8:in `new'
+
+Rendered rescues/_trace (33.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ToDoListsController#new (for 127.0.0.1 at 2009-07-30 13:20:48) [GET]
+Rendering template within layouts/application
+Rendering to_do_lists/new
+Rendered to_do_lists/_form (4.2ms)
+Completed in 20ms (View: 11, DB: 0) | 200 OK [http://0.0.0.0/to_do_lists/new]
+
+
+Processing ToDoListsController#new (for 127.0.0.1 at 2009-07-30 13:21:17) [GET]
+Rendering template within layouts/application
+Rendering to_do_lists/new
+Rendered to_do_lists/_form (214.0ms)
+Completed in 226ms (View: 217, DB: 0) | 200 OK [http://0.0.0.0/to_do_lists/new]
+
+
+Processing ToDoListsController#new (for 127.0.0.1 at 2009-07-30 13:21:36) [GET]
+Rendering template within layouts/application
+Rendering to_do_lists/new
+Rendered to_do_lists/_form (12.9ms)
+Completed in 26ms (View: 17, DB: 0) | 200 OK [http://0.0.0.0/to_do_lists/new]
+
+
+Processing ToDoListsController#create (for 127.0.0.1 at 2009-07-30 13:21:51) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"CE2jyRoewbwsqu4eX8AFWFqsgrMfCN35Jzy6b43MhsA=", "to_do_list"=>{"name"=>"Test", "items_attributes"=>{"0"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"Some todo item"}, "1"=>{"done"=>"1", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"4"}, "2"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"rst"}, "3"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"arsdars"}, "4"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>""}}}}
+
+ActionController::UnknownAction (No action responded to create. Actions: index and new):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ToDoListsController#create (for 127.0.0.1 at 2009-07-30 13:22:26) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"CE2jyRoewbwsqu4eX8AFWFqsgrMfCN35Jzy6b43MhsA=", "to_do_list"=>{"name"=>"Test", "items_attributes"=>{"0"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"Some todo item"}, "1"=>{"done"=>"1", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"4"}, "2"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"rst"}, "3"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"arsdars"}, "4"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>""}}}}
+  [4;35;1mToDoList Create (0.4ms)[0m   [0mINSERT INTO "to_do_lists" ("name", "created_at", "updated_at") VALUES('Test', '2009-07-30 03:22:26', '2009-07-30 03:22:26')[0m
+  [4;36;1mToDoItem Create (0.0ms)[0m   [0;1mSQLite3::SQLException: to_do_items.list_id may not be NULL: INSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:22:26', '2009-07-30 03:22:26', 'f', NULL, 'Some todo item', '2009-07-30')[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: to_do_items.list_id may not be NULL: INSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:22:26', '2009-07-30 03:22:26', 'f', NULL, 'Some todo item', '2009-07-30')):
+  app/controllers/to_do_lists_controller.rb:12:in `create'
+
+Rendered rescues/_trace (128.7ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ToDoListsController#create (for 127.0.0.1 at 2009-07-30 13:23:33) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"CE2jyRoewbwsqu4eX8AFWFqsgrMfCN35Jzy6b43MhsA=", "to_do_list"=>{"name"=>"Test", "items_attributes"=>{"0"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"Some todo item"}, "1"=>{"done"=>"1", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"4"}, "2"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"rst"}, "3"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"arsdars"}, "4"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>""}}}}
+  [4;35;1mToDoList Create (0.3ms)[0m   [0mINSERT INTO "to_do_lists" ("name", "created_at", "updated_at") VALUES('Test', '2009-07-30 03:23:33', '2009-07-30 03:23:33')[0m
+  [4;36;1mToDoItem Create (0.0ms)[0m   [0;1mSQLite3::SQLException: to_do_items.list_id may not be NULL: INSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:23:33', '2009-07-30 03:23:33', 'f', NULL, 'Some todo item', '2009-07-30')[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: to_do_items.list_id may not be NULL: INSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:23:33', '2009-07-30 03:23:33', 'f', NULL, 'Some todo item', '2009-07-30')):
+  app/controllers/to_do_lists_controller.rb:15:in `create'
+
+Rendered rescues/_trace (132.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ToDoListsController#create (for 127.0.0.1 at 2009-07-30 13:23:35) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"CE2jyRoewbwsqu4eX8AFWFqsgrMfCN35Jzy6b43MhsA=", "to_do_list"=>{"name"=>"Test", "items_attributes"=>{"0"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"Some todo item"}, "1"=>{"done"=>"1", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"4"}, "2"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"rst"}, "3"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"arsdars"}, "4"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>""}}}}
+  [4;35;1mToDoList Create (0.3ms)[0m   [0mINSERT INTO "to_do_lists" ("name", "created_at", "updated_at") VALUES('Test', '2009-07-30 03:23:35', '2009-07-30 03:23:35')[0m
+  [4;36;1mToDoItem Create (0.0ms)[0m   [0;1mSQLite3::SQLException: to_do_items.list_id may not be NULL: INSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:23:35', '2009-07-30 03:23:35', 'f', NULL, 'Some todo item', '2009-07-30')[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: to_do_items.list_id may not be NULL: INSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:23:35', '2009-07-30 03:23:35', 'f', NULL, 'Some todo item', '2009-07-30')):
+  app/controllers/to_do_lists_controller.rb:15:in `create'
+
+Rendered rescues/_trace (133.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ToDoListsController#create (for 127.0.0.1 at 2009-07-30 13:23:51) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"CE2jyRoewbwsqu4eX8AFWFqsgrMfCN35Jzy6b43MhsA=", "to_do_list"=>{"name"=>"Test", "items_attributes"=>{"0"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"Some todo item"}, "1"=>{"done"=>"1", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"4"}, "2"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"rst"}, "3"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"arsdars"}, "4"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>""}}}}
+  [4;35;1mToDoList Create (0.4ms)[0m   [0mINSERT INTO "to_do_lists" ("name", "created_at", "updated_at") VALUES('Test', '2009-07-30 03:23:51', '2009-07-30 03:23:51')[0m
+  [4;36;1mToDoItem Create (0.0ms)[0m   [0;1mSQLite3::SQLException: to_do_items.list_id may not be NULL: INSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:23:51', '2009-07-30 03:23:51', 'f', NULL, 'Some todo item', '2009-07-30')[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: to_do_items.list_id may not be NULL: INSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:23:51', '2009-07-30 03:23:51', 'f', NULL, 'Some todo item', '2009-07-30')):
+  app/controllers/to_do_lists_controller.rb:15:in `create'
+
+Rendered rescues/_trace (57.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.7ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateToDoLists (20090730030739)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "to_do_lists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090730030739')[0m
+Migrating to CreateToDoItems (20090730030826)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE TABLE "to_do_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "list_id" integer, "content" text, "due_date" date, "done" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090730030826')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("to_do_items")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("to_do_lists")[0m
+
+
+Processing ToDoListsController#create (for 127.0.0.1 at 2009-07-30 13:29:47) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"CE2jyRoewbwsqu4eX8AFWFqsgrMfCN35Jzy6b43MhsA=", "to_do_list"=>{"name"=>"Test", "items_attributes"=>{"0"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"Some todo item"}, "1"=>{"done"=>"1", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"4"}, "2"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"rst"}, "3"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"arsdars"}, "4"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>""}}}}
+  [4;35;1mToDoList Create (0.4ms)[0m   [0mINSERT INTO "to_do_lists" ("name", "created_at", "updated_at") VALUES('Test', '2009-07-30 03:29:47', '2009-07-30 03:29:47')[0m
+  [4;36;1mToDoItem Create (0.1ms)[0m   [0;1mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:29:47', '2009-07-30 03:29:47', 'f', NULL, 'Some todo item', '2009-07-30')[0m
+  [4;35;1mToDoItem Create (0.1ms)[0m   [0mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:29:47', '2009-07-30 03:29:47', 't', NULL, '4', '2009-07-30')[0m
+  [4;36;1mToDoItem Create (0.1ms)[0m   [0;1mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:29:47', '2009-07-30 03:29:47', 'f', NULL, 'rst', '2009-07-30')[0m
+  [4;35;1mToDoItem Create (0.1ms)[0m   [0mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:29:47', '2009-07-30 03:29:47', 'f', NULL, 'arsdars', '2009-07-30')[0m
+  [4;36;1mToDoItem Create (0.1ms)[0m   [0;1mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:29:47', '2009-07-30 03:29:47', 'f', NULL, '', '2009-07-30')[0m
+
+ActionView::MissingTemplate (Missing template to_do_lists/create.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ToDoListsController#create (for 127.0.0.1 at 2009-07-30 13:30:31) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"CE2jyRoewbwsqu4eX8AFWFqsgrMfCN35Jzy6b43MhsA=", "to_do_list"=>{"name"=>"Test", "items_attributes"=>{"0"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"Some todo item"}, "1"=>{"done"=>"1", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"4"}, "2"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"rst"}, "3"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"arsdars"}, "4"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>""}}}}
+  [4;35;1mToDoList Create (0.4ms)[0m   [0mINSERT INTO "to_do_lists" ("name", "created_at", "updated_at") VALUES('Test', '2009-07-30 03:30:31', '2009-07-30 03:30:31')[0m
+  [4;36;1mToDoItem Create (0.1ms)[0m   [0;1mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:30:31', '2009-07-30 03:30:31', 'f', NULL, 'Some todo item', '2009-07-30')[0m
+  [4;35;1mToDoItem Create (0.1ms)[0m   [0mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:30:31', '2009-07-30 03:30:31', 't', NULL, '4', '2009-07-30')[0m
+  [4;36;1mToDoItem Create (0.1ms)[0m   [0;1mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:30:31', '2009-07-30 03:30:31', 'f', NULL, 'rst', '2009-07-30')[0m
+  [4;35;1mToDoItem Create (0.1ms)[0m   [0mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:30:31', '2009-07-30 03:30:31', 'f', NULL, 'arsdars', '2009-07-30')[0m
+  [4;36;1mToDoItem Create (0.1ms)[0m   [0;1mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:30:31', '2009-07-30 03:30:31', 'f', NULL, '', '2009-07-30')[0m
+Redirected to http://0.0.0.0:3000/to_do_lists/2
+Completed in 27ms (DB: 1) | 302 Found [http://0.0.0.0/to_do_lists]
+
+
+Processing ToDoListsController#show (for 127.0.0.1 at 2009-07-30 13:30:31) [GET]
+  Parameters: {"id"=>"2"}
+
+ActionController::UnknownAction (No action responded to show. Actions: create, index, and new):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ToDoListsController#show (for 127.0.0.1 at 2009-07-30 13:30:53) [GET]
+  Parameters: {"id"=>"2"}
+
+ActiveRecord::RecordNotFound (Couldn't find ToDoList without an ID):
+  app/controllers/to_do_lists_controller.rb:22:in `show'
+
+Rendered rescues/_trace (31.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ToDoListsController#show (for 127.0.0.1 at 2009-07-30 13:31:08) [GET]
+  Parameters: {"id"=>"2"}
+
+ActiveRecord::RecordNotFound (Couldn't find ToDoList without an ID):
+  app/controllers/to_do_lists_controller.rb:23:in `show'
+
+Rendered rescues/_trace (31.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing ToDoListsController#show (for 127.0.0.1 at 2009-07-30 13:31:17) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mToDoList Load (0.2ms)[0m   [0mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 2) [0m
+
+ActionView::MissingTemplate (Missing template to_do_lists/show.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ToDoListsController#show (for 127.0.0.1 at 2009-07-30 13:33:01) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mToDoList Load (0.2ms)[0m   [0;1mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/show
+Completed in 13ms (View: 8, DB: 0) | 200 OK [http://0.0.0.0/to_do_lists/2]
+
+
+Processing ToDoListsController#edit (for 127.0.0.1 at 2009-07-30 13:33:08) [GET]
+  Parameters: {"id"=>"2"}
+
+ActionController::UnknownAction (No action responded to edit. Actions: create, index, new, and show):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ToDoListsController#edit (for 127.0.0.1 at 2009-07-30 13:34:08) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mToDoList Load (0.3ms)[0m   [0mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 2) [0m
+
+ActionView::MissingTemplate (Missing template to_do_lists/edit.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ToDoListsController#edit (for 127.0.0.1 at 2009-07-30 13:34:29) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mToDoList Load (0.2ms)[0m   [0;1mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/edit
+  [4;35;1mToDoItem Load (0.0ms)[0m   [0mSQLite3::SQLException: no such column: to_do_items.to_do_list_id: SELECT * FROM "to_do_items" WHERE ("to_do_items".to_do_list_id = 2) [0m
+
+ActionView::TemplateError (SQLite3::SQLException: no such column: to_do_items.to_do_list_id: SELECT * FROM "to_do_items" WHERE ("to_do_items".to_do_list_id = 2) ) on line #15 of app/views/to_do_lists/_form.html.erb:
+12:       </tr>
+13:     </thead>
+14:     <tbody>
+15:       <% f.fields_for :items do |item| %>
+16:         <tr>
+17:           <td><%= item.text_field :content %></td>
+18:           <td><%= item.date_select :due_date %></td>
+
+    app/views/to_do_lists/_form.html.erb:15
+    app/views/to_do_lists/_form.html.erb:1
+    app/views/to_do_lists/edit.html.erb:1
+
+Rendered rescues/_trace (55.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ToDoListsController#edit (for 127.0.0.1 at 2009-07-30 13:34:53) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mToDoList Load (0.3ms)[0m   [0;1mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/edit
+  [4;35;1mToDoItem Load (0.2ms)[0m   [0mSELECT * FROM "to_do_items" WHERE ("to_do_items".list_id = 2) [0m
+Rendered to_do_lists/_form (5.8ms)
+Completed in 12ms (View: 7, DB: 0) | 200 OK [http://0.0.0.0/to_do_lists/2/edit]
+
+
+Processing ToDoListsController#edit (for 127.0.0.1 at 2009-07-30 13:35:36) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mToDoList Load (0.2ms)[0m   [0;1mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/edit
+  [4;35;1mToDoItem Load (0.2ms)[0m   [0mSELECT * FROM "to_do_items" WHERE ("to_do_items".list_id = 2) [0m
+Rendered to_do_lists/_form (5.4ms)
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://0.0.0.0/to_do_lists/2/edit]
+
+
+Processing ToDoListsController#new (for 127.0.0.1 at 2009-07-30 13:35:39) [GET]
+Rendering template within layouts/application
+Rendering to_do_lists/new
+Rendered to_do_lists/_form (12.1ms)
+Completed in 23ms (View: 13, DB: 0) | 200 OK [http://0.0.0.0/to_do_lists/new]
+
+
+Processing ToDoListsController#create (for 127.0.0.1 at 2009-07-30 13:35:48) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"CE2jyRoewbwsqu4eX8AFWFqsgrMfCN35Jzy6b43MhsA=", "to_do_list"=>{"name"=>"Sup", "items_attributes"=>{"0"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"arst"}, "1"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"arst"}, "2"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"arst"}, "3"=>{"done"=>"1", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"arst"}, "4"=>{"done"=>"0", "due_date(1i)"=>"2009", "due_date(2i)"=>"7", "due_date(3i)"=>"30", "content"=>"arst"}}}}
+  [4;36;1mToDoList Create (0.4ms)[0m   [0;1mINSERT INTO "to_do_lists" ("name", "created_at", "updated_at") VALUES('Sup', '2009-07-30 03:35:48', '2009-07-30 03:35:48')[0m
+  [4;35;1mToDoItem Create (0.1ms)[0m   [0mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:35:48', '2009-07-30 03:35:48', 'f', 3, 'arst', '2009-07-30')[0m
+  [4;36;1mToDoItem Create (0.1ms)[0m   [0;1mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:35:48', '2009-07-30 03:35:48', 'f', 3, 'arst', '2009-07-30')[0m
+  [4;35;1mToDoItem Create (0.1ms)[0m   [0mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:35:48', '2009-07-30 03:35:48', 'f', 3, 'arst', '2009-07-30')[0m
+  [4;36;1mToDoItem Create (0.1ms)[0m   [0;1mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:35:48', '2009-07-30 03:35:48', 't', 3, 'arst', '2009-07-30')[0m
+  [4;35;1mToDoItem Create (0.1ms)[0m   [0mINSERT INTO "to_do_items" ("created_at", "updated_at", "done", "list_id", "content", "due_date") VALUES('2009-07-30 03:35:48', '2009-07-30 03:35:48', 'f', 3, 'arst', '2009-07-30')[0m
+Redirected to http://0.0.0.0:3000/to_do_lists/3
+Completed in 27ms (DB: 1) | 302 Found [http://0.0.0.0/to_do_lists]
+
+
+Processing ToDoListsController#show (for 127.0.0.1 at 2009-07-30 13:35:48) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mToDoList Load (0.2ms)[0m   [0;1mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/show
+Completed in 16ms (View: 10, DB: 0) | 200 OK [http://0.0.0.0/to_do_lists/3]
+
+
+Processing ToDoListsController#show (for 127.0.0.1 at 2009-07-30 13:36:04) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mToDoList Load (0.2ms)[0m   [0mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/show
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://0.0.0.0/to_do_lists/3]
+
+
+Processing ToDoListsController#show (for 127.0.0.1 at 2009-07-30 13:36:25) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mToDoList Load (0.2ms)[0m   [0;1mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/show
+Completed in 74ms (View: 4, DB: 0) | 200 OK [http://0.0.0.0/to_do_lists/3]
+
+
+Processing ToDoListsController#show (for 127.0.0.1 at 2009-07-30 13:36:33) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mToDoList Load (0.2ms)[0m   [0mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/show
+  [4;36;1mToDoItem Load (0.6ms)[0m   [0;1mSELECT * FROM "to_do_items" WHERE ("to_do_items".list_id = 3) [0m
+Completed in 16ms (View: 10, DB: 1) | 200 OK [http://0.0.0.0/to_do_lists/3]
+
+
+Processing ToDoListsController#edit (for 127.0.0.1 at 2009-07-30 13:36:36) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mToDoList Load (0.2ms)[0m   [0mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/edit
+  [4;36;1mToDoItem Load (0.2ms)[0m   [0;1mSELECT * FROM "to_do_items" WHERE ("to_do_items".list_id = 2) [0m
+Rendered to_do_lists/_form (5.7ms)
+Completed in 13ms (View: 7, DB: 0) | 200 OK [http://0.0.0.0/to_do_lists/2/edit]
+
+
+Processing ToDoListsController#show (for 127.0.0.1 at 2009-07-30 13:36:39) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mToDoList Load (0.2ms)[0m   [0mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/show
+  [4;36;1mToDoItem Load (0.2ms)[0m   [0;1mSELECT * FROM "to_do_items" WHERE ("to_do_items".list_id = 2) [0m
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://0.0.0.0/to_do_lists/2/]
+
+
+Processing ToDoListsController#show (for 127.0.0.1 at 2009-07-30 13:36:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mToDoList Load (0.2ms)[0m   [0mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/show
+  [4;36;1mToDoItem Load (0.2ms)[0m   [0;1mSELECT * FROM "to_do_items" WHERE ("to_do_items".list_id = 1) [0m
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://0.0.0.0/to_do_lists/1]
+
+
+Processing ToDoListsController#show (for 127.0.0.1 at 2009-07-30 13:37:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mToDoList Load (0.2ms)[0m   [0mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/show
+  [4;36;1mToDoItem Load (0.2ms)[0m   [0;1mSELECT * FROM "to_do_items" WHERE ("to_do_items".list_id = 1) [0m
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://0.0.0.0/to_do_lists/1]
+
+
+Processing ToDoListsController#show (for 127.0.0.1 at 2009-07-30 13:37:34) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mToDoList Load (0.2ms)[0m   [0mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/show
+  [4;36;1mToDoItem Load (0.6ms)[0m   [0;1mSELECT * FROM "to_do_items" WHERE ("to_do_items".list_id = 3) [0m
+Completed in 77ms (View: 70, DB: 1) | 200 OK [http://0.0.0.0/to_do_lists/3]
+
+
+Processing ToDoListsController#edit (for 127.0.0.1 at 2009-07-30 13:37:39) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mToDoList Load (0.2ms)[0m   [0mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/edit
+  [4;36;1mToDoItem Load (0.6ms)[0m   [0;1mSELECT * FROM "to_do_items" WHERE ("to_do_items".list_id = 3) [0m
+Rendered to_do_lists/_form (19.0ms)
+Completed in 26ms (View: 20, DB: 1) | 200 OK [http://0.0.0.0/to_do_lists/3/edit]
+
+
+Processing ToDoListsController#edit (for 127.0.0.1 at 2009-07-30 13:38:55) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mToDoList Load (0.2ms)[0m   [0mSELECT * FROM "to_do_lists" WHERE ("to_do_lists"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering to_do_lists/edit
+  [4;36;1mToDoItem Load (0.6ms)[0m   [0;1mSELECT * FROM "to_do_items" WHERE ("to_do_items".list_id = 3) [0m
+Rendered to_do_lists/_form (13.1ms)
+Completed in 22ms (View: 15, DB: 1) | 200 OK [http://0.0.0.0/to_do_lists/3/edit]
